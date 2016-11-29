@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
 
   
-#   Prefix Verb   URI Pattern                    Controller#Action
+# Prefix Verb   URI Pattern                    Controller#Action
 #         new_user_session GET    /users/sign_in(.:format)       devise/sessions#new
 #             user_session POST   /users/sign_in(.:format)       devise/sessions#create
 #     destroy_user_session DELETE /users/sign_out(.:format)      devise/sessions#destroy
@@ -21,4 +21,7 @@ Rails.application.routes.draw do
 #                          PATCH  /users(.:format)               devise/registrations#update
 #                          PUT    /users(.:format)               devise/registrations#update
 #                          DELETE /users(.:format)               devise/registrations#destroy
+#                     root GET    /                              landings#index
+#                   secure GET    /secure(.:format)              landings#secure
+
 end
