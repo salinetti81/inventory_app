@@ -1,0 +1,9 @@
+<%= form_for @work_order do |form| %>
+  Room: <%= form.text_field :room_name %></br>
+  Date: <%= form.text_field :date %></br>
+  Name: <%= form.text_field :employee_name %></br>
+  ID Number: <%= form.text_field :employee_id %></br>
+  Notes: <%= form.text_field :notes %></br>
+
+  <%= form.submit %>
+<% end %>

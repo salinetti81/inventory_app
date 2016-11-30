@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'landings#index'
+  root 'landings#secure'
   get 'secure' => 'landings#secure'
 
 
