@@ -1,12 +1,18 @@
-class WorkOrdersController <ApplicationController 
-
+class WorkOrdersController < ApplicationController 
+  before_action :set_work_order, only: [:show, :edit, :update, :destroy]
+  
   def index
-    @work_orders = WorkOrders.all
+    @work_order = WorkOrder.all
   end
 
   def create
-    @work_order = WorkOrder.create(work_orders_params)
-    redirect_to work_orders_path
+    @work_order = WorkOrder.new(work_order_params[:work_order])
+    
+    if @work_order.save
+      redirect_to @work_order
+    else 
+      render :action => new
+    end
   end
 
   def new
