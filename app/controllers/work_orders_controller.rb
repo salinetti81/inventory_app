@@ -1,8 +1,12 @@
 class WorkOrdersController < ApplicationController 
-  before_action :set_work_order, only: [:show, :edit, :update, :destroy]
+  
   
   def index
     @work_order = WorkOrder.all
+  end
+
+    def show
+    @work_order = WorkOrder.find(params[:id])
   end
 
   def create
@@ -20,10 +24,6 @@ class WorkOrdersController < ApplicationController
   end
 
   def edit
-    @work_order = WorkOrder.find(params[:id])
-  end
-
-  def show
     @work_order = WorkOrder.find(params[:id])
   end
 
