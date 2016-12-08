@@ -1,22 +1,11 @@
 class WorkOrdersController < ApplicationController 
   
-  
   def index
     @work_order = WorkOrder.all
   end
 
-    def show
+  def show
     @work_order = WorkOrder.find(params[:id])
-  end
-
-  def create
-    @work_order = WorkOrder.new(work_order_params[:work_order])
-    
-    if @work_order.save
-      redirect_to @work_order
-    else 
-      render :action => new
-    end
   end
 
   def new
@@ -27,10 +16,30 @@ class WorkOrdersController < ApplicationController
     @work_order = WorkOrder.find(params[:id])
   end
 
+  def create
+    @work_order = WorkOrder.new(work_order_params)
+
+    if @work_order.room_name
+      @work_order.room_name = @work_order.room_name
+    end
+
+    if @work_order.save
+      redirect_to @work_order
+    else 
+      render :action => :new
+    end
+  end
+
   def update
     @work_order = WorkOrder.find(params[:id])
     @work_order.update_attributes(work_order)
     redirect_to work_orders.path
+
+    if @work_order.update(work_order_params)
+      redirect_to @work_order
+    else
+      render :action => :edit
+    end
   end
 
   def destroy
@@ -39,5 +48,14 @@ class WorkOrdersController < ApplicationController
     redirect_to work_orders_path
   end
 
+ private
+
+  def set_work_order
+    @work_order = WorkOrder.find(param[:id])
+  end
+
+  def work_order_params
+    params.require(:work_order).permit(:room_name, :number, :date, :employee_id, :employee_name, :notes)
+  end
 
 end
