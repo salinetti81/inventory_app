@@ -1,0 +1,10 @@
+<%= form_for @equipment do |form| %>
+  Name: <%= form.text_field :name %></br>
+  ID: <%= form.text_field :id_number %></br>
+  Condition: <%= form.text_field :condition %></br>
+  Quantity: <%= form.text_field :quantity %></br>
+  Notes: <%= form.text_area :notes %></br>
+
+  <%= form.submit %>
+<% end %>
+

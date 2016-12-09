@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :work_orders
+  resources :equipments
+  resources :employees
 
   root 'landings#secure'
   get 'secure' => 'landings#secure'
@@ -8,8 +10,7 @@ Rails.application.routes.draw do
 
 
 
-  
-#  Prefix Verb   URI Pattern                     Controller#Action
+#                   Prefix Verb   URI Pattern                     Controller#Action
 #         new_user_session GET    /users/sign_in(.:format)        devise/sessions#new
 #             user_session POST   /users/sign_in(.:format)        devise/sessions#create
 #     destroy_user_session DELETE /users/sign_out(.:format)       devise/sessions#destroy
@@ -33,6 +34,22 @@ Rails.application.routes.draw do
 #                          PATCH  /work_orders/:id(.:format)      work_orders#update
 #                          PUT    /work_orders/:id(.:format)      work_orders#update
 #                          DELETE /work_orders/:id(.:format)      work_orders#destroy
+#          equipment_index GET    /equipment(.:format)            equipment#index
+#                          POST   /equipment(.:format)            equipment#create
+#            new_equipment GET    /equipment/new(.:format)        equipment#new
+#           edit_equipment GET    /equipment/:id/edit(.:format)   equipment#edit
+#                equipment GET    /equipment/:id(.:format)        equipment#show
+#                          PATCH  /equipment/:id(.:format)        equipment#update
+#                          PUT    /equipment/:id(.:format)        equipment#update
+#                          DELETE /equipment/:id(.:format)        equipment#destroy
+#                employees GET    /employees(.:format)            employees#index
+#                          POST   /employees(.:format)            employees#create
+#             new_employee GET    /employees/new(.:format)        employees#new
+#            edit_employee GET    /employees/:id/edit(.:format)   employees#edit
+#                 employee GET    /employees/:id(.:format)        employees#show
+#                          PATCH  /employees/:id(.:format)        employees#update
+#                          PUT    /employees/:id(.:format)        employees#update
+#                          DELETE /employees/:id(.:format)        employees#destroy
 #                     root GET    /                               landings#secure
 #                   secure GET    /secure(.:format)               landings#secure
 
