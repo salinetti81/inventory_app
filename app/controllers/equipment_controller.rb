@@ -1,4 +1,5 @@
 class EquipmentController <ApplicationController 
+  before_action :set_equipment, only: [:show, :edit, :update, :destroy]
 
   def index
     @equipment = Equipment.all
@@ -23,7 +24,7 @@ class EquipmentController <ApplicationController
       @equipment.id_number = @equipment.id_number
     end
 
-    if equipment.save
+    if @equipment.save
       redirect_to @equipment
     else 
       render :action => :new
@@ -48,5 +49,14 @@ class EquipmentController <ApplicationController
     redirect_to equipment_path
   end
 
+private 
+
+  def set_equipment
+    @equipment = Equipment.find(params[:id])
+  end
+
+  def equipment_params
+      params.require(:equipment).permit(:name, :id_number, :condition, :checked_out, :notes, :quantity)
+  end
 
 end

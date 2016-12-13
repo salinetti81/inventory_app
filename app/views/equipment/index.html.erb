@@ -1,18 +1,17 @@
 <h1>Equipment Index</h1>
 
+<% i = 0 %>
 <% @equipment.each do |equipment| %>
-  <tr>
-    <td><%= equipment.name %></td>
-    
-    
-    
-    <td>
-      <%= link_to 'View', equipment_path(equipment.id) %>
-      <%= link_to 'Edit', edit_equipment_path(equipment.id) %>
-      <%= link_to 'Delete', equipment, :method => 'delete' %>
-    </td>
-  </tr><br>
+  <% i += 1 %>
+    <tr>
+     <td><%= i %>)</td>
+     <td><%= equipment.name %></td> 
+     <td>
+        <%= link_to 'View', equipment_path(equipment.id) %>
+        <%= link_to 'Edit', edit_equipment_path(equipment.id) %>
+        <%= link_to 'Delete', equipment, :method => 'delete' %>
+     </td>
+    </tr><br>
+<% end %>
 
-  <% end %>
-
-  <p><%= link_to 'Add Equipment', new_equipment_path %></p>
+<p><%= link_to 'Add Equipment', new_equipment_path %></p>

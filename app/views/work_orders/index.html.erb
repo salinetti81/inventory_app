@@ -1,20 +1,18 @@
 <h1>Work Orders Index</h1>
 
-
-
+<%= i = 0 %>
 <% @work_order.each do |work_order| %>
+<% i += 1 %>
   <tr>
-    <td><%= work_order.number %></td>
+    <td><%= i %>)</td>
     <td><%= work_order.room_name %></td>
-    
-    
+    <td><%= work_order.date %></td>
     <td>
       <%= link_to 'View', work_order_path(work_order.id) %>
       <%= link_to 'Edit', edit_work_order_path(work_order.id) %>
       <%= link_to 'Delete', work_order, :method => 'delete' %>
     </td>
   </tr><br>
+<% end %>
 
-  <% end %>
-
-  <p><%= link_to 'New Work Order', new_work_order_path %></p>
+<p><%= link_to 'New Work Order', new_work_order_path %></p>
