@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :work_orders
-  resources :equipments
+  resources :equipment
   resources :employees
 
   root 'landings#secure'

@@ -1,10 +1,10 @@
-class EquipmentsController <ApplicationController 
+class EquipmentController <ApplicationController 
 
   def index
     @equipment = Equipment.all
   end
 
-  def create
+  def show
     @equipment = Equipment.find(params[:id])
   end
 
@@ -16,8 +16,18 @@ class EquipmentsController <ApplicationController
     @equipment = Equipment.find(params[:id])
   end
 
-  def show
-    @equipment = Equipment.find(params[:id])
+  def create
+    @equipment = Equipment.new(equipment_params)
+
+    if @equipment.id_number
+      @equipment.id_number = @equipment.id_number
+    end
+
+    if equipment.save
+      redirect_to @equipment
+    else 
+      render :action => :new
+    end
   end
 
   def update
@@ -35,7 +45,7 @@ class EquipmentsController <ApplicationController
   def destroy
     @equipment = Equipment.find(params[:id])
     @equipment.destroy
-    redirect_to equipments_path
+    redirect_to equipment_path
   end
 
 

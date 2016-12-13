@@ -1,5 +1,6 @@
 class WorkOrdersController < ApplicationController 
-  
+  before_action :set_work_order, only: [:show, :edit, :update, :destroy]
+
   def index
     @work_order = WorkOrder.all
   end
@@ -51,7 +52,7 @@ class WorkOrdersController < ApplicationController
  private
 
   def set_work_order
-    @work_order = WorkOrder.find(param[:id])
+    @work_order = WorkOrder.find(params[:id])
   end
 
   def work_order_params
