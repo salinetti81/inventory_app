@@ -33,8 +33,6 @@ class WorkOrdersController < ApplicationController
 
   def update
     @work_order = WorkOrder.find(params[:id])
-    @work_order.update_attributes(work_order)
-    redirect_to work_orders.path
 
     if @work_order.update(work_order_params)
       redirect_to @work_order

@@ -4,7 +4,7 @@
 <% @equipment.each do |equipment| %>
   <% i += 1 %>
     <tr>
-     <td><%= i %>)</td>
+     <td><%= i %>.</td>
      <td><%= equipment.name %></td> 
      <td>
         <%= link_to 'View', equipment_path(equipment.id) %>

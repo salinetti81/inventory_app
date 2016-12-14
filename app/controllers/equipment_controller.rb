@@ -1,4 +1,4 @@
-class EquipmentController <ApplicationController 
+class EquipmentController < ApplicationController 
   before_action :set_equipment, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -33,8 +33,6 @@ class EquipmentController <ApplicationController
 
   def update
     @equipment = Equipment.find(params[:id])
-    @equipment.update_attributes(equipment)
-    redirect_to equipment.path
 
     if @equipment.update(equipment_params)
       redirect_to @equipment
