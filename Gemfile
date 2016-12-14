@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # Devise gem for User Authentication
 gem 'devise'
+# Bootstrap
+gem 'bootstrap', '~> 4.0.0.alpha5'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
