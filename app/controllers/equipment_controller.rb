@@ -33,6 +33,8 @@ class EquipmentController < ApplicationController
 
   def update
     @equipment = Equipment.find(params[:id])
+    @equipment.update_attributes(equipment)
+    redirect_to equipment.path
 
     if @equipment.update(equipment_params)
       redirect_to @equipment
@@ -44,7 +46,7 @@ class EquipmentController < ApplicationController
   def destroy
     @equipment = Equipment.find(params[:id])
     @equipment.destroy
-    redirect_to equipment_path
+    redirect_to @equipment
   end
 
 private 
