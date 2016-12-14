@@ -1,7 +1,14 @@
 class EmployeesController <ApplicationController 
-
+  before_action :set_employee, only: [:show, :edit, :update, :destroy]
+  
   def index
+    @employee = Employee.all
   end
+
+  def show
+    @employee = Employee.find(params[:id])
+  end
+
 
   def create
   end
@@ -12,9 +19,7 @@ class EmployeesController <ApplicationController
   def edit
   end
 
-  def show
-  end
-
+ 
   def update
   end
 
