@@ -3,6 +3,11 @@ class WorkOrdersController < ApplicationController
 
   def index
     @work_order = WorkOrder.all
+    if params[:search]
+      @work_orders = WorkOrder.search(params[:search])
+    else
+      @work_orders = WorkOrder.all
+    end
   end
 
   def show
