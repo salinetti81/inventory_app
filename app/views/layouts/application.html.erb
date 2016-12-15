@@ -15,21 +15,14 @@
 <% end %>
 <p>
 <% if user_signed_in? %>
-<nav>
-  <ul>
-    <li>
-      <a href="../work_orders">Work Orders</a>
-    </li>
-    <li>
-      <a href="../work_orders/new">New Work Order</a>
-    </li>
-    <li>
-      <a href="../equipment">Equipment List</a>
-    </li>
-    <li>
-      <a href="../employees">Technicians</a>
-    </li>
-  </ul>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <a href="../">Home</a>
+    <a href="../work_orders">Work Orders</a>
+    <a href="../work_orders/new">New Work Order</a>
+    <a href="../equipment">Equipment List</a>
+    <a href="../employees">Technicians</a>
+  </div><br>  
 </nav>
   Logged in as <strong><%= current_user.email %></strong>.
   <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |

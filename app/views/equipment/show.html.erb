@@ -5,4 +5,6 @@
 <div>Checked Out: <%= @equipment[:checked_out] %>, <%= @equipment[:location] %></div>
 <div>Notes: <%= @equipment[:notes] %></div>
 
+<% if user_signed_in? %>
 <h1>Add links to edit and delete</h1>
+<% end -%>

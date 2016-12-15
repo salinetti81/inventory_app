@@ -2,4 +2,6 @@
 <div> <%= @employee[:first_name] %> <%= @employee[:last_name] %> </div>
 <div> <%= @employee[:employee_id] %> </div>
 
+<% if user_signed_in? %>
 <h1>add delete and edit paths</h1>
+<% end -%>

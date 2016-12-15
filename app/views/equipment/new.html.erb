@@ -1,3 +1,7 @@
 <h1>Equipment New</h1>
 
-<%= render :partial => 'form' %>
+<% if user_signed_in? %>
+  <%= render :partial => 'form' %>
+  <% else %>
+  <h2>You must be signed in to view this page.</h2>
+<% end -%>

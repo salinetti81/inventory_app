@@ -9,10 +9,14 @@
     <td><%= work_order.date %></td>
     <td>
       <%= link_to 'View', work_order_path(work_order.id) %>
+      <% if user_signed_in? %>
       <%= link_to 'Edit', edit_work_order_path(work_order.id) %>
       <%= link_to 'Delete', work_order, :method => 'delete' %>
+      <% end -%>
     </td>
   </tr><br>
 <% end %>
 
+<% if user_signed_in? %>
 <p><%= link_to 'New Work Order', new_work_order_path %></p>
+<% end -%>

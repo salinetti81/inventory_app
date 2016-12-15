@@ -6,5 +6,6 @@
 <div>Notes: <%= @work_order[:notes] %></div>
 
 
-
+<% if user_signed_in? %>
 <h1>add links to edit and delete</h1>
+<% end -%>

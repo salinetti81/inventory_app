@@ -9,10 +9,14 @@
   <td><%= employee.employee_id %></td>
   <td>
     <%= link_to 'View', employee_path(employee.id) %>
-    <%= link_to 'Edit', edit_employee_path(employee.id) %>
-    <%= link_to 'Delete', employee, :method => 'delete' %>
+    <% if user_signed_in? %>
+      <%= link_to 'Edit', edit_employee_path(employee.id) %>
+      <%= link_to 'Delete', employee, :method => 'delete' %>
+    <% end -%>
   </td>
 </tr><br>
 <% end -%>
 
+<% if user_signed_in? %>
 <p><%= link_to 'New employee', new_employee_path %> </p>
+<% end -%>
