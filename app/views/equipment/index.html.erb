@@ -3,17 +3,19 @@
 <% i = 0 %>
 <% @equipment.each do |equipment| %>
   <% i += 1 %>
-    <tr>
-     <td><%= i %>.</td>
-     <td><%= equipment.name %></td> 
-     <td>
-        <%= link_to 'View', equipment_path(equipment.id) %>
-        <% if user_signed_in? %>
-            <%= link_to 'Edit', edit_equipment_path(equipment.id) %>
-            <%= link_to 'Delete', equipment, :method => 'delete' %>
-        <% end -%>
-     </td>
+  <table>
+    <tr class="table">
+     <th scope="row"><%= i %>.</th scope="row">
+         <td><%= equipment.name %></td> 
+         <td>
+            <%= link_to 'View', equipment_path(equipment.id) %>
+            <% if user_signed_in? %>
+                <%= link_to 'Edit', edit_equipment_path(equipment.id) %>
+                <%= link_to 'Delete', equipment, :method => 'delete' %>
+            <% end -%>
+         </td>
     </tr><br>
+</table>
 <% end %>
 
 <% if user_signed_in? %>

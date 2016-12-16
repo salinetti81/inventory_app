@@ -3,8 +3,9 @@
 <% i = 0 %>
 <% @work_order.each do |work_order| %>
 <% i += 1 %>
-  <tr>
-    <td><%= i %>.</td>
+<table>
+  <tr class="table">
+    <th scope="row"><%= i %>.</th>
     <td><%= work_order.room_name %></td>
     <td><%= work_order.date %></td>
     <td>
@@ -15,6 +16,7 @@
       <% end -%>
     </td>
   </tr><br>
+  </table>
 <% end %>
 
 <% if user_signed_in? %>

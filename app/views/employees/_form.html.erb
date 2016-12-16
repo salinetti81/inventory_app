@@ -1,6 +1,6 @@
-<%= form_for @employee do |form| %>
+  <%= form_for @employee do |form| %>
   Name: <%= form.text_field :first_name %>
   <%= form.text_field :last_name %>
-  Badge Number: <%= form.text_field :employee_id %>
+  Badge Number: <%= form.text_field :employee_id %> <br>
    <%= form.submit %>
 <% end %>
