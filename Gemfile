@@ -28,6 +28,8 @@ gem 'devise'
 gem 'bootstrap', '~> 4.0.0.alpha5'
 # Boostrap Forms
 gem 'bootstrap_form'
+# Search
+gem 'pg_search'
 
 
 # Use ActiveModel has_secure_password

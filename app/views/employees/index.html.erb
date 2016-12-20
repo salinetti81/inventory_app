@@ -6,7 +6,7 @@
   <table class="table">
     <tr >
       <th scope="row"><%= i %>.</th>
-      <td><%= employee.first_name %> <%= employee.last_name %></td>
+      <td><%= employee.last_name %>, <%= employee.first_name %> </td>
       <td><%= employee.employee_id %></td>
       <td>
         <%= link_to 'View', employee_path(employee.id) %>
