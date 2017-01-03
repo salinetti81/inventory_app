@@ -4,4 +4,5 @@ class WorkOrder < ActiveRecord::Base
   has_many :users
   has_many :equipment
   include PgSearch
+  multisearchable :against => [:room_name, :number, :date, :employee_name, :employee_id]
 end

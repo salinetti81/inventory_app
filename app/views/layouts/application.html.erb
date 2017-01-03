@@ -29,6 +29,12 @@
 </nav>
   Logged in as <strong><%= current_user.email %></strong>.
   
+  <!-- seach -->
+  <%= form_tag  method: :get do %>
+    <%= text_field_tag :query, params[:query], :class => "search-box" %>
+    <%= submit_tag "Search This Site", name: nil, :class => "btn btn-search" %>
+<% end %>
+
 <% else %>
   <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
