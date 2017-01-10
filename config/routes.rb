@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :work_orders
   resources :equipment
   resources :employees
+  resources :search
 
   root 'landings#secure'
   get 'secure' => 'landings#secure'

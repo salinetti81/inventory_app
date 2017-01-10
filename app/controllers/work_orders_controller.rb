@@ -1,8 +1,22 @@
 class WorkOrdersController < ApplicationController 
   before_action :set_work_order, only: [:show, :edit, :update, :destroy]
 
+  def search
+    @work_order = WorkOrder.search_name(params[:search])
+  end
+
   def index
-    @work_order = WorkOrder.all
+     @work_order = WorkOrder.all
+      if params[:search]
+        @work_order = WorkOrder.search(params[:search]).order("created_at DESC")
+      else
+        @work_order = WorkOrder.all.order('created_at DESC')
+      end
+    # if params[:search].present?
+    #   @work_order = WorkOrder.perform_search(params[:search])
+    # else
+    #   @work_order = WorkOrder.all
+    # end
   end
 
   def show

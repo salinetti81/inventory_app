@@ -29,11 +29,17 @@
 </nav>
   Logged in as <strong><%= current_user.email %></strong>.
   
-  <!-- seach -->
-  <%= form_tag  method: :get do %>
-    <%= text_field_tag :query, params[:query], :class => "search-box" %>
-    <%= submit_tag "Search This Site", name: nil, :class => "btn btn-search" %>
+  <%= form_tag(work_orders_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+<%= submit_tag "Search" %>
 <% end %>
+
+<% if @work_orders.present? %>
+  <%= render @work_orders %>
+<% else %>
+  <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+<% end %>
+
 
 <% else %>
   <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
